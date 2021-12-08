@@ -23,8 +23,3 @@ Yamaha
 akai
 20
 True
-Norbercik
-Yamaha
-akai
-20
-True
