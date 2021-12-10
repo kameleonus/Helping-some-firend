@@ -8,11 +8,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("C:\\Users\\Hyperbook\\Desktop\\RoweryNorbert\\src\\com\\company\\rowery.txt");
+        File file = new File("src/rowery.txt");
         Scanner scanner = new Scanner(file);
         ArrayList<Rower> rowers = new ArrayList<>();
         while(scanner.hasNext()) {
-            Rower pobierzRowerZPliku = new Rower(scanner.next(),scanner.next(), scanner.next(), scanner.nextInt(),
+            Rower pobierzRowerZPliku = new Rower(scanner.next(),scanner.next(),scanner.next(), scanner.next(), scanner.nextInt(),
                     scanner.nextBoolean());
             rowers.add(pobierzRowerZPliku);
         }
@@ -23,6 +23,7 @@ public class Main {
             System.out.println(r.getKolor());
             System.out.println(r.getOpony());
             System.out.println(r.getPrzerzutki());
+            System.out.println(r.getRodzaj());
         }
 
     }

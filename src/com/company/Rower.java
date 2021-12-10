@@ -5,13 +5,15 @@ public class Rower {
 
     String nazwa;
     String marka;
+    String rodzaj;
     String kolor;
     int opony;
     Boolean przerzutki;
 
-    public Rower(String nazwa,String marka, String kolor, int opony, Boolean przerzutki) {
-        this.nazwa=nazwa;
+    public Rower(String nazwa,String marka,String rodzaj, String kolor, int opony, Boolean przerzutki) {
+        this.nazwa= nazwa;
         this.marka = marka;
+        this.rodzaj=rodzaj;
         this.kolor = kolor;
         this.opony = opony;
         this.przerzutki = przerzutki;
@@ -55,4 +57,8 @@ public class Rower {
     public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
+    public String getRodzaj() {
+        return rodzaj;}
+    public void setRodzaj(String rodzaj) {
+        this.rodzaj = rodzaj;}
 }
