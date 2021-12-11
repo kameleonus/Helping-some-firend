@@ -1,0 +1,50 @@
+A. system logowania
+B. system rejestracji oraz system dodawania karty podczas rejestracji
+C. System płatności
+
+
+A)
+
+Po zalogowaniu użytkownik dostaję się do menu wyboru rowerów w którym musi się znajodować
+  1. Nazwa użytkownika
+  2. Stan konta użytkownika
+  3. Wybór rodzaju roweru z podanych( rower miejski, rower trekkingowy, rower MTB (rower górski), rower szosowy, rower gravelowy, rower crossowy.) 
+        // https://80rowerow.pl/jakie-sa-rodzaje-rowerow/ -link do podglądu rowerów
+      3.1. Wybór modelu roweru // poszuka się jak będzie trzeba xd także na razie walić to 
+      3.2. Krótka specyfikacja tego roweru gdzieś pod modelem takie rzeczy jak własnie kolor, opony, przeżutki 
+        // Nad tym muszę się zastanowić bo nie wiem czy kolor będzie ważny myślę że bardziej specyfikacje tutaj wrzucić własnie jak opony
+        // rodzaj ramy albo zamiast wartosci boolean czy posiada przeżutki wpisać jaki mają rodzaj np. zewnętrzne lub wewnętrzne bo raczej
+        // ciężko teraz znaleźć rower bez przeżutek no i wogóle bym nie myślał o rowerach dla dzieci za dużo niepotrzebnych zmian bo one
+        // są całkowicie inczej zbudowane bo mają jakieś dodatkowe kółka nie mają przeżutek i tak dalej niepotrzebne utrudnianie 
+      3.3. Po wybraniu jednego z modelu może wrzucimy jakiś opis tego roweru ale najważniejsz żeby był tam wybór wypożyczenia
+        // Nie wiem jeszcze jak będzie to najlatwiej i najlepiej zrobić ale pasowało by coś takiego że użytkownik wybiera sobie albo wpisuje 
+        // czas wypożyczenia np. 1 dzień, 7dni, 30 dni, maksymalnie tam do 60 dni czy coś żeby potem nie było problemu bo pod zaznaczeniu tych
+        // opcji będzie się pokazywała cena tego wypożyczenia i tam będzie gość mógł zakceptować wypożyczenie i pobierze mu kase z konta lub 
+        // cofnie się ogólnie tam wszędzie będzie cofanie żeby można było łatwo przechodzić pomiędzy rodzajami i modelami rowerów 
+B)
+
+Po przejsciu do rejestracji użytkownik dostaję następujące pola do wypelnienia
+  1. login
+  2. Hasło
+  3. Powtórzenie hasła
+  4. Imie
+  5. Nazwisko
+  6. 16 cyfrowy numer karty
+  7. Data ważności karty
+  8. Numer CVV2/CVC2
+    // zastanowimy się na walidacją ale chyba trzeba będzie dodać żeby wiesz sprawdząło czy hasła w 2 i 3 punkcie są takie same i czy wpisana
+    // data ważności jest większa niż aktualna data, no i czy jest podane 16 cyfr w numerze karty, tak samo czy są 3 znaki w punkcie 8 ale 
+    // nic innego poza tym nie będziemy tykać bo to nie na nasze możliwości, umijętności i ogólnie wiedze oraz skale działania :)
+Po wypełnieniu wszystkich pól poprawnie użytkownik jest cofany do start() gdzie może wybrać logowanie i zalogować się za pomocą swojego loginu i hasła
+
+C)
+
+Ogólnie użytkownik który jest dodany już do bazy będzie na start miał 500 zł lub więcej a także każdy inny który będzie tworzył konto będzie miał 
+dodawane 500 zł do konta i ogólnie nie mam pojęcia jak to zrobimy ale pasowało by coś takiego zrobić że użytkownik jeszcze w menu po zalogowaniu może 
+wejść w stan konta i tam dodać sobie kase tylko problem pojawia się taki że wiesz przez że nie korzystamy w żadnym stponiu z gotowym wtyczek płatniczych
+a sami tego nie ograniemy nie ma żadnego systemu który sprawdzał by czy karta jest w systemie, czy istnieje, do kogo należy, w jaki jest banku i przede 
+wszystkich dla nas najważniejsze ile posiada zasobów na koncie bo jak dodamy opcje dodawania kasy do swojego konta poprzez wpisanie wartości to będzie
+możliwość wpisania sobie 3000000000000000 zł i to mu się doda dlatego nie wiem jak to rozwiązać właśnie także zrobimy to na razie łapotologicznie
+tak żeby działało i walić to że będzie mógł sobie dodawać tam miliony 
+
+  
