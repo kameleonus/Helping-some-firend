@@ -15,9 +15,11 @@ public class Main {
     }
 
     private static void start() throws FileNotFoundException {
+        System.out.println("|| Wypożyczalnia rowerów online ||\n");
         System.out.println("1. Logowanie");
         System.out.println("2. Rejestracja");
-        System.out.println("3. Wyjscie");
+        System.out.println("3. Wyjście");
+        System.out.println();
         System.out.print("Wybierz co chcesz zrobic wariacie: ");
         Scanner scanner = new Scanner(System.in);
         int wybor = scanner.nextInt();
@@ -40,20 +42,20 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String login="";
         String haslo="";
-        System.out.println("Naciśnij 1 aby przejść do logowanie lub 2 aby wrócić");
+        System.out.println("Naciśnij 1 aby przejść do logowania lub 2 aby wrócić");
         if(scanner.nextInt()==1){
-            System.out.print("Podaj login: ");
+            System.out.print("Login: ");
             login= scanner.next();
-            System.out.print("Podaj haslo: ");
+            System.out.print("Haslo: ");
             haslo= scanner.next();
            }
         else start();
         for (Konta k:konta) {
             if(k.getLogin().equals(login) && k.getHaslo().equals(haslo)){
-                System.out.println("Gejtuaslcka");
-            }//Popraw to
+                System.out.println("Zalogowano do konta "+login);
+            }
             else{
-                System.out.println("Błędne dane");
+                System.out.println("Podany login lub haslo jest niepoprawne");//Your username or password may be incorrect
                 logowanie();
             }
         }
