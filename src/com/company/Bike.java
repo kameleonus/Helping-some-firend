@@ -1,6 +1,6 @@
 package com.company;
 
-public class Rower {
+public class Bike {
 
 
     String nazwa;
@@ -10,7 +10,7 @@ public class Rower {
     int opony;
     Boolean przerzutki;
 
-    public Rower(String nazwa,String marka,String rodzaj, String kolor, int opony, Boolean przerzutki) {
+    public Bike(String nazwa,String marka,String rodzaj, String kolor, int opony, Boolean przerzutki) {
         this.nazwa= nazwa;
         this.marka = marka;
         this.rodzaj=rodzaj;

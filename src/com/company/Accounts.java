@@ -1,6 +1,6 @@
 package com.company;
 
-public class Konta {
+public class Accounts {
 
     String login;
     String Imie;
@@ -8,7 +8,7 @@ public class Konta {
     String NumerKarty;
     String Haslo;
 
-    public Konta(String login,String imie, String nazwisko, String numerKarty, String haslo) {
+    public Accounts(String login, String imie, String nazwisko, String numerKarty, String haslo) {
         this.login=login;
         Imie = imie;
         Nazwisko = nazwisko;

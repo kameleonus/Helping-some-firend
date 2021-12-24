@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<Rower> rowery = wypiszRowery();
-        ArrayList<Konta> konta =  pobierzDane();
+        ArrayList<Bike> rowery = wypiszRowery();
+        ArrayList<Accounts> konta =  pobierzDane();
         start();
 
     }
@@ -38,7 +38,7 @@ public class Main {
     }
 
     private static void logowanie() throws FileNotFoundException {
-        ArrayList<Konta> konta =  pobierzDane();
+        ArrayList<Accounts> konta =  pobierzDane();
         Scanner scanner = new Scanner(System.in);
         String login="";
         String haslo="";
@@ -50,7 +50,7 @@ public class Main {
             haslo= scanner.next();
            }
         else start();
-        for (Konta k:konta) {
+        for (Accounts k:konta) {
             if(k.getLogin().equals(login) && k.getHaslo().equals(haslo)){
                 System.out.println("Zalogowano do konta "+login);
             }
@@ -62,23 +62,23 @@ public class Main {
         scanner.close();
     }
 
-    private static ArrayList<Konta> pobierzDane() throws FileNotFoundException {
-        ArrayList<Konta> konta = new ArrayList<>();
-        File file = new File("src/konta.txt");
+    private static ArrayList<Accounts> pobierzDane() throws FileNotFoundException {
+        ArrayList<Accounts> konta = new ArrayList<>();
+        File file = new File("src/accounts.txt");
         Scanner scanner = new Scanner(file);
         while(scanner.hasNext()){
-            Konta konto = new Konta(scanner.next(),scanner.next(),scanner.next(), scanner.next(), scanner.next());
+            Accounts konto = new Accounts(scanner.next(),scanner.next(),scanner.next(), scanner.next(), scanner.next());
             konta.add(konto);
         }
         scanner.close();
         return konta;
     }
-    public static ArrayList<Rower>  wypiszRowery() throws FileNotFoundException {
-        File file = new File("src/rowery.txt");
+    public static ArrayList<Bike>  wypiszRowery() throws FileNotFoundException {
+        File file = new File("src/bikes.txt");
         Scanner scanner = new Scanner(file);
-        ArrayList<Rower> rowers = new ArrayList<>();
+        ArrayList<Bike> rowers = new ArrayList<>();
         while(scanner.hasNext()) {
-            Rower pobierzRowerZPliku = new Rower(scanner.next(),scanner.next(),scanner.next(), scanner.next(), scanner.nextInt(),
+            Bike pobierzRowerZPliku = new Bike(scanner.next(),scanner.next(),scanner.next(), scanner.next(), scanner.nextInt(),
                     scanner.nextBoolean());
             rowers.add(pobierzRowerZPliku);
         }
