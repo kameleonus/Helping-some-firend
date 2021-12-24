@@ -3,62 +3,67 @@ package com.company;
 public class Bike {
 
 
-    String nazwa;
-    String marka;
-    String rodzaj;
-    String kolor;
-    int opony;
-    Boolean przerzutki;
+    String Name;
+    String Producer;
+    String Type;
+    String Color;
+    int tires;
+    Boolean Gears;
 
-    public Bike(String nazwa,String marka,String rodzaj, String kolor, int opony, Boolean przerzutki) {
-        this.nazwa= nazwa;
-        this.marka = marka;
-        this.rodzaj=rodzaj;
-        this.kolor = kolor;
-        this.opony = opony;
-        this.przerzutki = przerzutki;
-    }
-
-    public String getMarka() {
-        return marka;
+    public Bike(String name, String producer, String type, String color, int tires, Boolean gears) {
+        Name = name;
+        Producer = producer;
+        Type = type;
+        Color = color;
+        this.tires = tires;
+        Gears = gears;
     }
 
-    public void setMarka(String marka) {
-        this.marka = marka;
+    public String getName() {
+        return Name;
     }
 
-    public String getKolor() {
-        return kolor;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public void setKolor(String kolor) {
-        this.kolor = kolor;
+    public String getProducer() {
+        return Producer;
     }
 
-    public int getOpony() {
-        return opony;
+    public void setProducer(String producer) {
+        Producer = producer;
     }
 
-    public void setOpony(int opony) {
-        this.opony = opony;
+    public String getType() {
+        return Type;
     }
 
-    public Boolean getPrzerzutki() {
-        return przerzutki;
+    public void setType(String type) {
+        Type = type;
     }
 
-    public void setPrzerzutki(Boolean przerzutki) {
-        this.przerzutki = przerzutki;
-    }
-    public String getNazwa() {
-        return nazwa;
+    public String getColor() {
+        return Color;
     }
 
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
+    public void setColor(String color) {
+        Color = color;
     }
-    public String getRodzaj() {
-        return rodzaj;}
-    public void setRodzaj(String rodzaj) {
-        this.rodzaj = rodzaj;}
+
+    public int getTires() {
+        return tires;
+    }
+
+    public void setTires(int tires) {
+        this.tires = tires;
+    }
+
+    public Boolean getGears() {
+        return Gears;
+    }
+
+    public void setGears(Boolean gears) {
+        Gears = gears;
+    }
 }

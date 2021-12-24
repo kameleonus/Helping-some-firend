@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<Bike> rowery = wypiszRowery();
-        ArrayList<Accounts> konta =  pobierzDane();
+        ArrayList<Bike> bikes = printBikes();
+        ArrayList<Accounts> accounts =  getAccountData();
         start();
 
     }
@@ -24,65 +24,67 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int wybor = scanner.nextInt();
         if (wybor==1){
-            logowanie();
+            logIn();
         }
         else if(wybor==2){
-            rejestrcja();
+            createAccount();
         }
         else{
             System.exit(0);}
     }
 
-    private static void rejestrcja() {
+    private static void createAccount() {
 
     }
 
-    private static void logowanie() throws FileNotFoundException {
-        ArrayList<Accounts> konta =  pobierzDane();
+    private static void logIn() throws FileNotFoundException {
+        ArrayList<Accounts> accounts =  getAccountData();
         Scanner scanner = new Scanner(System.in);
         String login="";
-        String haslo="";
+        String password="";
         System.out.println("Naciśnij 1 aby przejść do logowania lub 2 aby wrócić");
         if(scanner.nextInt()==1){
             System.out.print("Login: ");
             login= scanner.next();
             System.out.print("Haslo: ");
-            haslo= scanner.next();
+            password= scanner.next();
            }
         else start();
-        for (Accounts k:konta) {
-            if(k.getLogin().equals(login) && k.getHaslo().equals(haslo)){
+        for (Accounts k:accounts) {
+            if(k.getLogin().equals(login) && k.getPassword().equals(password)){
                 System.out.println("Zalogowano do konta "+login);
             }
             else{
                 System.out.println("Podany login lub haslo jest niepoprawne");//Your username or password may be incorrect
-                logowanie();
+                logIn();
             }
         }
         scanner.close();
     }
 
-    private static ArrayList<Accounts> pobierzDane() throws FileNotFoundException {
-        ArrayList<Accounts> konta = new ArrayList<>();
+    private static ArrayList<Accounts> getAccountData() throws FileNotFoundException {
+        ArrayList<Accounts> accounts = new ArrayList<>();
         File file = new File("src/accounts.txt");
         Scanner scanner = new Scanner(file);
         while(scanner.hasNext()){
-            Accounts konto = new Accounts(scanner.next(),scanner.next(),scanner.next(), scanner.next(), scanner.next());
-            konta.add(konto);
+            Accounts account = new Accounts(scanner.next(),scanner.next(),scanner.next(), scanner.next(),
+                    scanner.next());
+            accounts.add(account);
         }
         scanner.close();
-        return konta;
+        return accounts;
     }
-    public static ArrayList<Bike>  wypiszRowery() throws FileNotFoundException {
+    public static ArrayList<Bike>  printBikes() throws FileNotFoundException {
         File file = new File("src/bikes.txt");
         Scanner scanner = new Scanner(file);
-        ArrayList<Bike> rowers = new ArrayList<>();
+        ArrayList<Bike> bikes = new ArrayList<>();
         while(scanner.hasNext()) {
-            Bike pobierzRowerZPliku = new Bike(scanner.next(),scanner.next(),scanner.next(), scanner.next(), scanner.nextInt(),
+            Bike getBikeFromFile = new Bike(scanner.next(),scanner.next(),scanner.next(), scanner.next(),
+                    scanner.nextInt(),
                     scanner.nextBoolean());
-            rowers.add(pobierzRowerZPliku);
+            bikes.add(getBikeFromFile);
         }
         scanner.close();
-        return rowers;
+        return bikes;
     }
 }

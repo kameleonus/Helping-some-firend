@@ -3,50 +3,19 @@ package com.company;
 public class Accounts {
 
     String login;
-    String Imie;
-    String Nazwisko;
-    String NumerKarty;
-    String Haslo;
+    String Name;
+    String Surname;
+    String CardNumber;
+    String Password;
 
-    public Accounts(String login, String imie, String nazwisko, String numerKarty, String haslo) {
-        this.login=login;
-        Imie = imie;
-        Nazwisko = nazwisko;
-        NumerKarty = numerKarty;
-        Haslo = haslo;
+    public Accounts(String login, String name, String surname, String cardNumber, String password) {
+        this.login = login;
+        Name = name;
+        Surname = surname;
+        CardNumber = cardNumber;
+        Password = password;
     }
 
-    public String getImie() {
-        return Imie;
-    }
-
-    public void setImie(String imie) {
-        Imie = imie;
-    }
-
-    public String getNazwisko() {
-        return Nazwisko;
-    }
-
-    public void setNazwisko(String nazwisko) {
-        Nazwisko = nazwisko;
-    }
-
-    public String getNumerKarty() {
-        return NumerKarty;
-    }
-
-    public void setNumerKarty(String numerKarty) {
-        NumerKarty = numerKarty;
-    }
-
-    public String getHaslo() {
-        return Haslo;
-    }
-
-    public void setHaslo(String haslo) {
-        Haslo = haslo;
-    }
     public String getLogin() {
         return login;
     }
@@ -55,4 +24,35 @@ public class Accounts {
         this.login = login;
     }
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getSurname() {
+        return Surname;
+    }
+
+    public void setSurname(String surname) {
+        Surname = surname;
+    }
+
+    public String getCardNumber() {
+        return CardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        CardNumber = cardNumber;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
 }
