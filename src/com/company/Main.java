@@ -1,20 +1,18 @@
 package com.company;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<Bike> bikes = printBikes();
-        ArrayList<Accounts> accounts =  getAccountData();
+    public static void main(String[] args) throws IOException {
+
         start();
 
     }
 
-    private static void start() throws FileNotFoundException {
+    private static void start() throws IOException {
         System.out.println("|| Wypożyczalnia rowerów online ||\n");
         System.out.println("1. Logowanie");
         System.out.println("2. Rejestracja");
@@ -33,11 +31,31 @@ public class Main {
             System.exit(0);}
     }
 
-    private static void createAccount() {
-
+    private static void createAccount() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj imie: ");
+        String name = scanner.next();
+        System.out.println("Podaj nazwisko: ");
+        String surname = scanner.next();
+        System.out.println("Podaj login: ");
+        String login = scanner.next();
+        System.out.println("Podaj hasło: ");
+        String password = scanner.next();
+        System.out.println("Podaj numer konta: ");
+        String accountNumber = scanner.next();
+        while(loginCheck(login)){
+            System.out.println("Podany login jest juz zajęty. Podaj inny: ");
+            login = scanner.next();
+        }
+        scanner.close();
+        File file = new File("src/accounts.txt");
+        FileWriter fileWriter = new FileWriter(file,true);
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        bufferedWriter.write("\n"+login+"\n"+name+"\n"+surname+"\n"+password+"\n"+accountNumber);
+        bufferedWriter.close();
     }
 
-    private static void logIn() throws FileNotFoundException {
+    private static void logIn() throws IOException {
         ArrayList<Accounts> accounts =  getAccountData();
         Scanner scanner = new Scanner(System.in);
         String login="";
@@ -53,12 +71,11 @@ public class Main {
         for (Accounts k:accounts) {
             if(k.getLogin().equals(login) && k.getPassword().equals(password)){
                 System.out.println("Zalogowano do konta "+login);
-            }
-            else{
-                System.out.println("Podany login lub haslo jest niepoprawne");//Your username or password may be incorrect
-                logIn();
+                return;
             }
         }
+        System.out.println("Podany login lub haslo jest niepoprawne");//Your username or password may be incorrect
+        logIn();
         scanner.close();
     }
 
@@ -86,5 +103,15 @@ public class Main {
         }
         scanner.close();
         return bikes;
+    }
+    public static boolean loginCheck(String login) throws IOException {
+        ArrayList<Accounts> accounts =  getAccountData();
+        for (Accounts k:accounts) {
+            if (k.getLogin().equals(login)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
