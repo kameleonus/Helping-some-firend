@@ -9,7 +9,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         start();
-
     }
 
     private static void start() throws IOException {
@@ -21,13 +20,14 @@ public class Main {
         System.out.print("Wybierz co chcesz zrobic wariacie: ");
         Scanner scanner = new Scanner(System.in);
         int wybor = scanner.nextInt();
+
         if (wybor==1){
             logIn();
         }
         else if(wybor==2){
             createAccount();
         }
-        else{
+        else{ scanner.close();
             System.exit(0);}
     }
 
@@ -41,8 +41,17 @@ public class Main {
         String login = scanner.next();
         System.out.println("Podaj hasło: ");
         String password = scanner.next();
+        System.out.println("Powtórz hasło: ");
+        String password2 = scanner.next();
         System.out.println("Podaj numer konta: ");
         String accountNumber = scanner.next();
+        while(!password.equals(password2)){
+            System.out.println("Błędne hasła!");
+            System.out.println("Podaj hasło: ");
+            password = scanner.next();
+            System.out.println("Powtórz hasło: ");
+            password2 = scanner.next();
+        }
         while(loginCheck(login)){
             System.out.println("Podany login jest juz zajęty. Podaj inny: ");
             login = scanner.next();
@@ -51,10 +60,9 @@ public class Main {
         File file = new File("src/accounts.txt");
         FileWriter fileWriter = new FileWriter(file,true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-        bufferedWriter.write("\n"+login+"\n"+name+"\n"+surname+"\n"+password+"\n"+accountNumber);
+        bufferedWriter.append("\n"+login+"\n"+name+"\n"+surname+"\n"+accountNumber+"\n"+password);
         bufferedWriter.close();
     }
-
     private static void logIn() throws IOException {
         ArrayList<Accounts> accounts =  getAccountData();
         Scanner scanner = new Scanner(System.in);
@@ -71,12 +79,11 @@ public class Main {
         for (Accounts k:accounts) {
             if(k.getLogin().equals(login) && k.getPassword().equals(password)){
                 System.out.println("Zalogowano do konta "+login);
-                return;
+                System.exit(0);//Account stuff
             }
         }
         System.out.println("Podany login lub haslo jest niepoprawne");//Your username or password may be incorrect
-        logIn();
-        scanner.close();
+        start();
     }
 
     private static ArrayList<Accounts> getAccountData() throws FileNotFoundException {
