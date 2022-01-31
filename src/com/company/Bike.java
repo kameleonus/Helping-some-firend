@@ -8,9 +8,9 @@ public class Bike {
     String Type;
     String Color;
     int tires;
-    Boolean Gears;
+    String Gears;
 
-    public Bike(String name, String producer, String type, String color, int tires, Boolean gears) {
+    public Bike(String name, String producer, String type, String color, int tires, String gears) {
         Name = name;
         Producer = producer;
         Type = type;
@@ -59,11 +59,11 @@ public class Bike {
         this.tires = tires;
     }
 
-    public Boolean getGears() {
+    public String getGears() {
         return Gears;
     }
 
-    public void setGears(Boolean gears) {
+    public void setGears(String gears) {
         Gears = gears;
     }
 }

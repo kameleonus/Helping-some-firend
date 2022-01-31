@@ -79,11 +79,15 @@ public class Main {
         for (Accounts k:accounts) {
             if(k.getLogin().equals(login) && k.getPassword().equals(password)){
                 System.out.println("Zalogowano do konta "+login);
-                System.exit(0);//Account stuff
+                menu();
+
+            }
+            else{
+                System.out.println("Podany login lub haslo jest niepoprawne");//Your username or password may be incorrect
+                start();
             }
         }
-        System.out.println("Podany login lub haslo jest niepoprawne");//Your username or password may be incorrect
-        start();
+
     }
 
     private static ArrayList<Accounts> getAccountData() throws FileNotFoundException {
@@ -105,7 +109,7 @@ public class Main {
         while(scanner.hasNext()) {
             Bike getBikeFromFile = new Bike(scanner.next(),scanner.next(),scanner.next(), scanner.next(),
                     scanner.nextInt(),
-                    scanner.nextBoolean());
+                    scanner.next());
             bikes.add(getBikeFromFile);
         }
         scanner.close();
@@ -119,5 +123,23 @@ public class Main {
             }
         }
         return false;
+    }
+    public static void menu() throws IOException {
+        System.out.println("Dostępne rowery:");
+        System.out.println("numer, nazwa, kolor, producent, typ, liczba biegów, rozmiar koła");
+        ArrayList<Bike> printBikes = printBikes();
+        int f = 1;
+        for (int i = 0; i < 5; i++) {
+            System.out.print(f++);
+                System.out.println(' '+printBikes.get(i).getName()+' '+printBikes.get(i).getColor()+' '+printBikes.get(i).getProducer()+' '+printBikes.get(i).getType()+' '+printBikes.get(i).getGears()+' '+printBikes.get(i).getTires()+'"');
+
+        }
+        System.out.println("Wpisz numer roweru który cię interesuję");
+        Scanner scanner = new Scanner(System.in);
+        int bi = scanner.nextInt();
+        rent rent = new rent();
+        rent.BorrowBike(printBikes,bi);
+
+
     }
 }
