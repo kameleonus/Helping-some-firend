@@ -2,35 +2,66 @@ package com.company;
 
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
         start();
-    }
 
-    private static void start() throws IOException {
+    }
+    public static void start() throws IOException {
         System.out.println("|| Wypożyczalnia rowerów online ||\n");
         System.out.println("1. Logowanie");
         System.out.println("2. Rejestracja");
         System.out.println("3. Wyjście");
         System.out.println();
         System.out.print("Wybierz co chcesz zrobic wariacie: ");
+        try{
         Scanner scanner = new Scanner(System.in);
         int wybor = scanner.nextInt();
+            if (wybor==1){
+                logIn();
+            }
+            else if(wybor==2){
+                createAccount();
+            }
+            else if (wybor==4){
+                LogAdmin();
+            }
+            else{ scanner.close();
+                System.exit(0);}}
+        catch (InputMismatchException e) {
+            start();
 
-        if (wybor==1){
-            logIn();
         }
-        else if(wybor==2){
-            createAccount();
-        }
-        else{ scanner.close();
-            System.exit(0);}
     }
 
+    private static void LogAdmin() throws IOException {
+        Scanner scanner =new Scanner(System.in);
+        System.out.println("Podaj login");
+        String Alogin =scanner.next();
+        System.out.println("Podaj haslo");
+        String Apassword =scanner.next();
+        if(Alogin.equals("admin") && Apassword.equals("admin")){
+            System.out.println("Witam w panelu zarządania.");
+            System.out.println("1. Doadaj rower do bazy.");
+            System.out.println("2. Usun rower z bazy.");
+            System.out.println("3. Edytuj rower w  bazie.");
+            AdminAction adminAction = new AdminAction();
+            int task = scanner.nextInt();
+            switch (task){
+                case 1:adminAction.AddBike();break;
+                case 2:adminAction.RemoveBike();break;
+                case 3:adminAction.EditBike();break;
+            }
+            scanner.close();
+        }
+        else {
+            scanner.close();
+            start();
+        }
+    }
     private static void createAccount() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj imie: ");
@@ -89,7 +120,6 @@ public class Main {
         }
 
     }
-
     private static ArrayList<Accounts> getAccountData() throws FileNotFoundException {
         ArrayList<Accounts> accounts = new ArrayList<>();
         File file = new File("src/accounts.txt");
@@ -129,10 +159,9 @@ public class Main {
         System.out.println("numer, nazwa, kolor, producent, typ, liczba biegów, rozmiar koła");
         ArrayList<Bike> printBikes = printBikes();
         int f = 1;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < printBikes().size(); i++) {
             System.out.print(f++);
                 System.out.println(' '+printBikes.get(i).getName()+' '+printBikes.get(i).getColor()+' '+printBikes.get(i).getProducer()+' '+printBikes.get(i).getType()+' '+printBikes.get(i).getGears()+' '+printBikes.get(i).getTires()+'"');
-
         }
         System.out.println("Wpisz numer roweru który cię interesuję");
         Scanner scanner = new Scanner(System.in);
@@ -142,4 +171,5 @@ public class Main {
 
 
     }
+
 }

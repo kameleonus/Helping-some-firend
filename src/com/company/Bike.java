@@ -23,47 +23,21 @@ public class Bike {
         return Name;
     }
 
-    public void setName(String name) {
-        Name = name;
-    }
 
     public String getProducer() {
         return Producer;
     }
 
-    public void setProducer(String producer) {
-        Producer = producer;
-    }
-
     public String getType() {
         return Type;
     }
-
-    public void setType(String type) {
-        Type = type;
-    }
-
-    public String getColor() {
-        return Color;
-    }
-
-    public void setColor(String color) {
-        Color = color;
-    }
-
-    public int getTires() {
-        return tires;
-    }
-
-    public void setTires(int tires) {
-        this.tires = tires;
-    }
-
-    public String getGears() {
-        return Gears;
-    }
-
-    public void setGears(String gears) {
-        Gears = gears;
-    }
+    public String getColor() { return Color; }
+    public int getTires() { return tires; }
+    public String getGears() { return Gears; }
+    public void setName(String name) { Name = name; }
+    public void setProducer(String producer) { Producer = producer; }
+    public void setType(String type) { Type = type; }
+    public void setColor(String color) { Color = color; }
+    public void setTires(int tires) { this.tires = tires; }
+    public void setGears(String gears) { Gears = gears; }
 }

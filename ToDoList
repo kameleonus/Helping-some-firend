@@ -38,7 +38,7 @@ Po przejsciu do rejestracji użytkownik dostaję następujące pola do wypelnien
 Po wypełnieniu wszystkich pól poprawnie użytkownik jest cofany do start() gdzie może wybrać logowanie i zalogować się za pomocą swojego loginu i hasła
 
 C)
-
+Zrobimy to tak że na start ma 0 a potem robimy tak że konta majądane ilości przypisane do siebie a porównujemy i odejmujemy od stanu
 Ogólnie użytkownik który jest dodany już do bazy będzie na start miał 500 zł lub więcej a także każdy inny który będzie tworzył konto będzie miał 
 dodawane 500 zł do konta i ogólnie nie mam pojęcia jak to zrobimy ale pasowało by coś takiego zrobić że użytkownik jeszcze w menu po zalogowaniu może 
 wejść w stan konta i tam dodać sobie kase tylko problem pojawia się taki że wiesz przez że nie korzystamy w żadnym stponiu z gotowym wtyczek płatniczych
