@@ -1,4 +1,4 @@
-CORE_V2
+CORE_V3
 Lazaro
 MTB
 Czarny
@@ -28,9 +28,3 @@ Rower_miejski
 Biały
 7
 26
-CORE_V3
-Lazaro
-MTB
-Biały
-26
-10

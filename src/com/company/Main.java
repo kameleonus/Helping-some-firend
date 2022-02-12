@@ -16,7 +16,7 @@ public class Main {
         System.out.println("2. Rejestracja");
         System.out.println("3. Wyjście");
         System.out.println();
-        System.out.print("Wybierz co chcesz zrobic wariacie: ");
+        System.out.print("Wybierz numer: ");
         try{
         Scanner scanner = new Scanner(System.in);
         int wybor = scanner.nextInt();
@@ -55,10 +55,9 @@ public class Main {
                 case 2:adminAction.RemoveBike();break;
                 case 3:adminAction.EditBike();break;
             }
-            scanner.close();
+
         }
         else {
-            scanner.close();
             start();
         }
     }
@@ -129,7 +128,6 @@ public class Main {
                     scanner.next());
             accounts.add(account);
         }
-        scanner.close();
         return accounts;
     }
     public static ArrayList<Bike>  printBikes() throws FileNotFoundException {
@@ -142,7 +140,6 @@ public class Main {
                     scanner.next());
             bikes.add(getBikeFromFile);
         }
-        scanner.close();
         return bikes;
     }
     public static boolean loginCheck(String login) throws IOException {
