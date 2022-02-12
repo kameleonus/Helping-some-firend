@@ -43,7 +43,5 @@ public class rent  {
             System.out.println("System error");
             Main.menu();
         }
-
-
     }
 }

@@ -16,7 +16,7 @@ public class Main {
         System.out.println("2. Rejestracja");
         System.out.println("3. Wyjście");
         System.out.println();
-        System.out.print("Wybierz numer: ");
+        System.out.print("Wybierz numer ");
         try{
         Scanner scanner = new Scanner(System.in);
         int wybor = scanner.nextInt();
@@ -55,7 +55,6 @@ public class Main {
                 case 2:adminAction.RemoveBike();break;
                 case 3:adminAction.EditBike();break;
             }
-
         }
         else {
             start();
@@ -165,8 +164,6 @@ public class Main {
         int bi = scanner.nextInt();
         rent rent = new rent();
         rent.BorrowBike(printBikes,bi);
-
-
     }
 
 }
